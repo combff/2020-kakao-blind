@@ -13,7 +13,7 @@ public class Q1 {
 			for (int j = 0; j < s.length(); j = j + i) { //j = 0
 				
 				String str = ""; //현재값
-				String key = ""; //다음값
+				String next = ""; //다음값
 				if (j + i >= s.length()) { // 나머지 문자열
 					str = s.substring(j); 
 					last = true;
@@ -23,17 +23,17 @@ public class Q1 {
 				
 				if (!last) {
 					if(j+i+i >= s.length())
-						key = s.substring(j+i); 
+						next = s.substring(j+i); 
 					else
-						key = s.substring(j + i, j + i + i); 
+						next = s.substring(j + i, j + i + i); 
 				}
 					
-				if (str.equals(key)) { // 압축이 된다면
+				if (str.equals(next)) { // 압축이 된다면
 					if (last && cnt > 1) {
 						candi.append(String.valueOf(cnt)); //중복개수가 10개 이상. 즉 2자리일 수도 있음 ***
-						candi.append(String.valueOf(key));
+						candi.append(String.valueOf(next));
 					}else if (last && cnt == 1) {
-						candi.append(String.valueOf(key)); 
+						candi.append(String.valueOf(next)); 
 					}
 					cnt++; 
 				} else { 
